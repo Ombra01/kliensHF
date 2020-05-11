@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="GoTExplorer.Views.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GoTExplorer.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:vm="using:GoTExplorer.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:SearchPageViewModel x:Name="ViewModels" />
+    </Page.DataContext>
+
+    <SplitView DisplayMode="CompactInline" IsPaneOpen="True">
+        <SplitView.Pane>
+            <ListView HorizontalAlignment="Left" Height="auto" Margin="20,80,0,0" VerticalAlignment="Top">
+                <TextBlock Text="Search GoT" Margin="0,0,0,60" FontSize="44"/>
+                <ComboBox x:Name="TypeSelection" Header="Search for:"  Margin="10,0,0,30" Width="200">
+                    <ComboBoxItem Content="-- Please select --" IsSelected="True" />
+                    <ComboBoxItem Content="Book"/>
+                    <ComboBoxItem Content="Character"/>
+                    <ComboBoxItem Content="House"/>
+                </ComboBox>
+                <TextBox Header="Name" Margin="10,0,0,30" Width="200" />
+                <TextBox Header="in Book:" Margin="10,0,0,30" Width="200" />
+
+                <Button x:Name="SearchButton" Content="Search" HorizontalContentAlignment="Center" Margin="150,20,0,20" Background="LightGreen" Click="SearchButton_Click" />
+
+            </ListView>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Frame x:Name="ResultsFrame" />
+        </SplitView.Content>
+    </SplitView>
+
+
+</Page>
