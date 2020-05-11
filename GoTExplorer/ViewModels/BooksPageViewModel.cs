@@ -30,4 +30,3 @@ namespace GoTExplorer.ViewModels
         public void NavigateToBookDetails(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
     }
 }
-

@@ -7,7 +7,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:GoTExplorer.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:vm="using:GoTExplorer.ViewModels" xmlns:models="using:GoTExplorer.Models"
+      xmlns:vm="using:GoTExplorer.ViewModels"
+      xmlns:models="using:GoTExplorer.Models"
       mc:Ignorable="d">
 
     <Page.DataContext>

@@ -40,6 +40,10 @@ namespace GoTExplorer.Views
                 //ResultsFrame.Navigate(typeof(BooksPage));
                 ViewModel.NavigateToBooksPage();
             }
+            /*else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && string.IsNullOrEmpty(NameSearch.Text))
+            {
+                ViewModel.NavigateToCharactersPage();
+            }*/
             /*else
             {
                 Frame.Navigate(typeof(WelcomePage));
@@ -47,11 +51,7 @@ namespace GoTExplorer.Views
 
             if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && !string.IsNullOrEmpty(NameSearch.Text))
             {
-                int bookId = 0;
-
-                bookId = 1;
-
-                ViewModel.NavigateToBookDetails(bookId);
+                ViewModel.NavigateToBookDetailsPage(NameSearch.Text);
             }
         }
     }

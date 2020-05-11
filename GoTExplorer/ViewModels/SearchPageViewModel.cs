@@ -14,6 +14,10 @@ namespace GoTExplorer.ViewModels
     {
         public void NavigateToBooksPage() { NavigationService.Navigate(typeof(BooksPage)); }
 
-        public void NavigateToBookDetails(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
+        public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
+
+        public void NavigateToBookDetailsPage(string bookName) { NavigationService.Navigate(typeof(BookDetailsPage), bookName); }
+
+        public void NavigateToCharactersPage() { NavigationService.Navigate(typeof(CharactersPage)); }
     }
 }

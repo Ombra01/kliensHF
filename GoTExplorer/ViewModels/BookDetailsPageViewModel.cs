@@ -22,10 +22,25 @@ namespace GoTExplorer.ViewModels
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            var bookId = (int)parameter;
-            var service = new BookService();
-            Book = await service.GetBookAsync(bookId);
-            await base.OnNavigatedToAsync(parameter, mode, state);
+            int intParam = 0;
+            if (int.TryParse(parameter.ToString(), out intParam))
+            {
+                var bookId = (int)parameter;
+                var service = new BookService();
+                Book = await service.GetBookAsync(bookId);
+                await base.OnNavigatedToAsync(parameter, mode, state);
+            } else
+            {
+                var bookName = (string)parameter;
+                var service = new BookService();
+
+                var booksList = await service.GetBookAsync(bookName);
+                foreach (var item in booksList)
+                {
+                    Book = item;
+                }
+                await base.OnNavigatedToAsync(parameter, mode, state);
+            }
         }
     }
 }
