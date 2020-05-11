@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GoTExplorer.Models;
+using GoTExplorer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,14 +35,23 @@ namespace GoTExplorer.Views
             {
                 Frame.Navigate(typeof(SearchPage));
             } 
-            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book")
+            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && string.IsNullOrEmpty(NameSearch.Text))
             {
                 //ResultsFrame.Navigate(typeof(BooksPage));
-                Frame.Navigate(typeof(BooksPage));
+                ViewModel.NavigateToBooksPage();
             }
-            else
+            /*else
             {
                 Frame.Navigate(typeof(WelcomePage));
+            }*/
+
+            if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && !string.IsNullOrEmpty(NameSearch.Text))
+            {
+                int bookId = 0;
+
+                bookId = 1;
+
+                ViewModel.NavigateToBookDetails(bookId);
             }
         }
     }

@@ -102,6 +102,7 @@
     <Compile Include="ViewModels\BookDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\BooksPageViewModel.cs" />
     <Compile Include="ViewModels\SearchPageViewModel.cs" />
+    <Compile Include="ViewModels\WelcomePageViewModel.cs" />
     <Compile Include="Views\BookDetailsPage.xaml.cs">
       <DependentUpon>BookDetailsPage.xaml</DependentUpon>
     </Compile>

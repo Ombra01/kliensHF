@@ -13,7 +13,6 @@ namespace GoTExplorer.ViewModels
 {
     public class BookDetailsPageViewModel : ViewModelBase
     {
-        //public Book Book { get; set; } = new Book();
         private Book _book;
         public Book Book
         {

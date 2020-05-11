@@ -30,7 +30,7 @@ namespace GoTExplorer.Views
 
         private void ValarMorghoulisButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SearchPage));
+            ViewModel.NavigateToSearchPage();
         }
     }
 }

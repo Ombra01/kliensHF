@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Controls;
+using Template10.Mvvm;
 
 namespace GoTExplorer.ViewModels
 {
-    class SearchPageViewModel
+    class SearchPageViewModel : ViewModelBase
     {
-        public void NavigateToBooksPage(int bookId)
-        {
-            
-        }
+        public void NavigateToBooksPage() { NavigationService.Navigate(typeof(BooksPage)); }
+
+        public void NavigateToBookDetails(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
     }
 }

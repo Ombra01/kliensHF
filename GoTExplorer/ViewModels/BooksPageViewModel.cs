@@ -27,7 +27,7 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        public void NavigateToDetails(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
+        public void NavigateToBookDetails(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
     }
 }
 

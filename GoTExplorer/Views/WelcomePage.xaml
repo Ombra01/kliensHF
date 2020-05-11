@@ -9,9 +9,13 @@
     xmlns:vm="using:GoTExplorer.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <vm:WelcomePageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+    
     <Grid>
         <Button x:Name="ValarMorghoulisButton" Content="Valar Morghoulis" Margin="0,750,0,100" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="114" Width="206" Click="ValarMorghoulisButton_Click"/>
-        <TextBlock x:Name="TEST" Margin="187,156,172,470" Text="Welcome to the world of Game of Thrones" TextAlignment="Center" FontSize="144"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap" Width="1561"/>
+        <TextBlock Margin="187,156,172,470" Text="Welcome to the world of Game of Thrones" TextAlignment="Center" FontSize="144"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Width="1561"/>
     </Grid>
 </Page>

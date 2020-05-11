@@ -11,7 +11,7 @@
       mc:Ignorable="d">
 
     <Page.DataContext>
-        <vm:BookDetailsPageViewModel />
+        <vm:BookDetailsPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -37,8 +37,22 @@
             <TextBlock Text="{Binding Book.released}" Margin="10,0,0,30" Width="200" />
             <TextBlock Text="{Binding Book.mediaType}" Margin="10,0,0,30" Width="200" />
             <TextBlock Text="{Binding Book.numberOfPages}" Margin="10,0,0,30" Width="200" />
-            <TextBlock Text="{Binding Book.characters}" Margin="10,0,0,30" Width="200" />
-            <TextBlock Text="{Binding Book.povCharacters}" Margin="10,0,0,30" Width="200" />
+
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Book.characters}" Margin="10,0,0,30" Width="200" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Book.povCharacters}" Margin="10,0,0,30" Width="200" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ListView>
     </Grid>
 </Page>
