@@ -36,7 +36,7 @@
         <controls:PageHeader Content="{Binding Book.name}" Grid.Row="0" />
 
         <ListView HorizontalAlignment="Left" Height="auto" Margin="80,80,0,0" VerticalAlignment="Top" SelectionMode="None" Grid.Row="1">
-            <TextBlock Text="Title:/n{Binding Book.name}" Margin="50,0,0,60" FontSize="44"/>
+            <TextBlock Text="{Binding Book.name}" Margin="50,0,0,60" FontSize="44"/>
             <TextBlock Text="{Binding Book.isbn}" Margin="10,0,0,30" Width="200" />
             <ListView ItemsSource="{Binding Source={StaticResource AuthorsViewSource}}" SelectionMode="None">
                 <ListView.ItemTemplate>
