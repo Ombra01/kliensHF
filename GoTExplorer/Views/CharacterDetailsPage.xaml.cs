@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using GoTExplorer.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,19 +20,11 @@ namespace GoTExplorer.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BookDetailsPage : Page
+    public sealed partial class CharacterDetailsPage : Page
     {
-        public BookDetailsPage()
+        public CharacterDetailsPage()
         {
             this.InitializeComponent();
-        }
-
-        private void Character_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var book = (Character)e.ClickedItem;
-            string[] urlTokens = book.url.Split('/');
-
-            ViewModel.NavigateToCharacterDetails(int.Parse(urlTokens[urlTokens.Length - 1]));
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using GoTExplorer.Models;
 using GoTExplorer.Services;
+using GoTExplorer.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +22,17 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _book, value); }
         }
 
+        public ObservableCollection<Author> Authors { get; set; } = new ObservableCollection<Author>();
+
+        private string _author;
+        public string Author
+        {
+            get { return _author; }
+            set { Set(ref _author, value); }
+        }
+
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
+        public ObservableCollection<Character> PoVCharacters { get; set; } = new ObservableCollection<Character>();
 
         private Character _character;
         public Character Character
@@ -50,27 +62,35 @@ namespace GoTExplorer.ViewModels
                 
             }
 
-            CreateCharactersList();
+            foreach (string authorName in Book.authors)
+            {
+
+                Authors.Add(new Author(authorName));
+            }
+
+            foreach (string characterUri in Book.characters)
+            {
+                TransformUriToCharacter(characterUri, Characters);
+            }
+
+            foreach (string characterUri in Book.povCharacters)
+            {
+                TransformUriToCharacter(characterUri, PoVCharacters);
+            }
 
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        private void CreateCharactersList()
-        {
-            foreach (string characterUri in Book.characters)
-            {
-                TransformUriToCharacter(characterUri);
-                Characters.Add(Character);
-            }
-        }
-
-        private async void TransformUriToCharacter(string uri)
+        private async void TransformUriToCharacter(string uri, ObservableCollection<Character> characterList)
         {
             string[] urlTokens = uri.Split('/');
             int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
 
             var service = new CharacterService();
             Character = await service.GetCharacterAsync(characterId);
+            characterList.Add(Character);
         }
+
+        public void NavigateToCharacterDetails(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
     }
 }
