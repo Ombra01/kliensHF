@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoTExplorer.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,22 @@ namespace GoTExplorer.Views
         public CharacterDetailsPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Book_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var book = (Book)e.ClickedItem;
+            string[] urlTokens = book.url.Split('/');
+
+            ViewModel.NavigateToBookDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+        }
+
+        private void House_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            /*var book = (House)e.ClickedItem;
+            string[] urlTokens = book.url.Split('/');
+
+            ViewModel.NavigateToHouseDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));*/
         }
     }
 }
