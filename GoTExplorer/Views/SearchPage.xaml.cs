@@ -42,6 +42,7 @@ namespace GoTExplorer.Views
             }
             else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && string.IsNullOrEmpty(NameSearch.Text))
             {
+                App.currentCharactersPageNumber = 1;
                 ViewModel.NavigateToCharactersPage(1);
             }
             /*else
