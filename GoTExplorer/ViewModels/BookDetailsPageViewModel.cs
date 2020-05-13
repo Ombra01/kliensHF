@@ -91,6 +91,6 @@ namespace GoTExplorer.ViewModels
             characterList.Add(Character);
         }
 
-        public void NavigateToCharacterDetails(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
+        public void NavigateToCharacterDetailsPage(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
     }
 }

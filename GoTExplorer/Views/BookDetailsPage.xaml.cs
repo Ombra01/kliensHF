@@ -33,7 +33,7 @@ namespace GoTExplorer.Views
             var book = (Character)e.ClickedItem;
             string[] urlTokens = book.url.Split('/');
 
-            ViewModel.NavigateToCharacterDetails(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToCharacterDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
         }
     }
 }
