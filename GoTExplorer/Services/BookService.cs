@@ -24,9 +24,9 @@ namespace GoTExplorer.Services
             }
         }
 
-        public async Task<List<Book>> GetBooksAsync()
+        public async Task<List<Book>> GetBooksAsync(int pageNumber)
         {
-            return await GetAsync<List<Book>>(new Uri(serverUrl, "api/books"));
+            return await GetAsync<List<Book>>(new Uri(serverUrl, "api/books?page=" + pageNumber));
         }
 
         public async Task<Book> GetBookAsync(int id)

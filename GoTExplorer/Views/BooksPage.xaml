@@ -28,12 +28,18 @@
 
         <controls:PageHeader Content="GoTExplorer" Grid.Row="0" />
 
-        <ListView HorizontalAlignment="Center" Height="auto" Margin="20,112,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource BooksViewSource}}" IsItemClickEnabled="True" ItemClick="Book_ItemClick">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding name}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <ListView>
+            <ListView x:Name="BookList" HorizontalAlignment="Center" Height="auto" Margin="20,112,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource BooksViewSource}}" IsItemClickEnabled="True" ItemClick="Book_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid>
+                <Button x:Name="PreviousPageButton" Content="Previous" HorizontalContentAlignment="Center" Margin="20,20,0,20" Background="LightBlue" Click="PreviousPageButton_Click" />
+                <Button x:Name="NextPageButton" Content="Next" HorizontalContentAlignment="Center" Margin="150,20,0,20" Background="LightBlue" Click="NextPageButton_Click" />
+            </Grid>
         </ListView>
     </Grid>
 </Page>

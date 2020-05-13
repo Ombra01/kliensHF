@@ -10,11 +10,15 @@ namespace GoTExplorer
     [Bindable]
     sealed partial class App : Template10.Common.BootStrapper
     {
+        public static int currentBooksPageNumber;
         public static int currentCharactersPageNumber;
+        public static int currentHousesPageNumber;
 
         public App()
         {
+            currentBooksPageNumber = 1;
             currentCharactersPageNumber = 1;
+            currentHousesPageNumber = 1;
             InitializeComponent();
             RequestedTheme = Windows.UI.Xaml.ApplicationTheme.Light;
         }

@@ -29,7 +29,7 @@
         <controls:PageHeader Content="GoTExplorer" Grid.Row="0" />
 
         <ListView>
-            <ListView HorizontalAlignment="Left" Height="auto" Margin="20,112,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource CharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
+            <ListView x:Name="CharacterList" HorizontalAlignment="Left" Height="auto" Margin="20,112,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource CharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding name}" />

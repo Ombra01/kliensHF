@@ -12,12 +12,22 @@ namespace GoTExplorer.ViewModels
 {
     class SearchPageViewModel : ViewModelBase
     {
-        public void NavigateToBooksPage() { NavigationService.Navigate(typeof(BooksPage)); }
+        public void NavigateToBooksPage()
+        {
+            App.currentBooksPageNumber = 1;
+            int pageNumber = App.currentBooksPageNumber;
+            NavigationService.Navigate(typeof(BooksPage), pageNumber);
+        }
 
-        public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
+        //public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
 
         public void NavigateToBookDetailsPage(string bookName) { NavigationService.Navigate(typeof(BookDetailsPage), bookName); }
 
-        public void NavigateToCharactersPage(int pageNumber) { NavigationService.Navigate(typeof(CharactersPage), pageNumber); }
+        public void NavigateToCharactersPage()
+        {
+            App.currentCharactersPageNumber = 1;
+            int pageNumber = App.currentCharactersPageNumber;
+            NavigationService.Navigate(typeof(CharactersPage), pageNumber);
+        }
     }
 }

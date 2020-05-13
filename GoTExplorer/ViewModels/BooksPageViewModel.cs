@@ -18,8 +18,9 @@ namespace GoTExplorer.ViewModels
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
+            int pageNumber = (int)parameter;
             var service = new BookService();
-            var booksList = await service.GetBooksAsync();
+            var booksList = await service.GetBooksAsync(pageNumber);
             foreach (var item in booksList)
             {
                 Books.Add(item);
@@ -27,6 +28,7 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
+        public void NavigateToBooksPage(int pageNumber) { NavigationService.Navigate(typeof(BooksPage), pageNumber); }
         public void NavigateToBookDetails(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
     }
 }

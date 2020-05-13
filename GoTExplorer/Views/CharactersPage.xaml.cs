@@ -38,7 +38,15 @@ namespace GoTExplorer.Views
 
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
-            int newPageNumber = ++App.currentCharactersPageNumber;
+            int newPageNumber;
+            if (CharacterList.Items.Count == 10)
+            {
+                newPageNumber = ++App.currentCharactersPageNumber;
+            } else
+            {
+                newPageNumber = App.currentCharactersPageNumber;
+            }
+
             ViewModel.NavigateToCharactersPage(newPageNumber);
         }
 
