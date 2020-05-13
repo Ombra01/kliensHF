@@ -36,34 +36,61 @@
         <controls:PageHeader Content="{Binding Book.name}" Grid.Row="0" />
 
         <ListView HorizontalAlignment="Left" Height="auto" Margin="80,80,0,0" VerticalAlignment="Top" SelectionMode="None" Grid.Row="1">
-            <TextBlock Text="{Binding Book.name}" Margin="50,0,0,60" FontSize="44"/>
-            <TextBlock Text="{Binding Book.isbn}" Margin="10,0,0,30" Width="200" />
-            <ListView ItemsSource="{Binding Source={StaticResource AuthorsViewSource}}" SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding name, Mode=OneWay}" Margin="10,0,0,30" Width="200" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <TextBlock Text="{Binding Book.publisher}" Margin="10,0,0,30" Width="200" />
-            <TextBlock Text="{Binding Book.country}" Margin="10,0,0,30" Width="200" />
-            <TextBlock Text="{Binding Book.released}" Margin="10,0,0,30" Width="200" />
-            <TextBlock Text="{Binding Book.mediaType}" Margin="10,0,0,30" Width="200" />
-            <TextBlock Text="{Binding Book.numberOfPages}" Margin="10,0,0,30" Width="200" />
-            <ListView ItemsSource="{Binding Source={StaticResource CharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding name, Mode=OneWay}" Margin="10,0,0,30" Width="200" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <ListView ItemsSource="{Binding Source={StaticResource PoVCharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding name, Mode=OneWay}" Margin="10,0,0,30" Width="200" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <TextBlock Text="{Binding Book.name}" Margin="50,0,0,60" FontSize="44" />
+            <Grid>
+                <TextBlock Text="ISBN:" Margin="10,0,0,30" Width="200" />
+                <TextBlock Text="{Binding Book.isbn}" Margin="210,0,0,30" Width="200" />
+            </Grid>
+            <Grid>
+                <TextBlock Text="Authors:" Margin="0,0,0,30" Width="200" />
+                <ListView ItemsSource="{Binding Source={StaticResource AuthorsViewSource}}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name, Mode=OneWay}" Margin="195,0,0,30" Width="200" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid>
+                <TextBlock Text="Publisher:" Margin="10,0,0,30" Width="200" />
+                <TextBlock Text="{Binding Book.publisher}" Margin="210,0,0,30" Width="200" />
+            </Grid>
+            <Grid>
+                <TextBlock Text="Country:" Margin="10,0,0,30" Width="200" />
+                <TextBlock Text="{Binding Book.country}" Margin="210,0,0,30" Width="200" />
+            </Grid>
+            <Grid>
+                <TextBlock Text="Released:" Margin="10,0,0,30" Width="200" />
+                <TextBlock Text="{Binding Book.released}" Margin="210,0,0,30" Width="200" />
+            </Grid>
+            <Grid>
+                <TextBlock Text="Type:" Margin="10,0,0,30" Width="200" />
+                <TextBlock Text="{Binding Book.mediaType}" Margin="210,0,0,30" Width="200" />
+            </Grid>
+            <Grid>
+                <TextBlock Text="Pages:" Margin="10,0,0,30" Width="200" />
+                <TextBlock Text="{Binding Book.numberOfPages}" Margin="210,0,0,30" Width="200" />
+            </Grid>
+            <Grid>
+                <TextBlock Text="Characters:" Margin="0,0,0,30" Width="200" />
+                <ListView ItemsSource="{Binding Source={StaticResource CharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name, Mode=OneWay}" Margin="195,0,0,30" Width="200" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid>
+                <TextBlock Text="PoV Characters:" Margin="0,0,0,30" Width="200" FontSize="12" />
+                <ListView ItemsSource="{Binding Source={StaticResource PoVCharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name, Mode=OneWay}" Margin="195,0,0,30" Width="200" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </ListView>
     </Grid>
 </Page>
