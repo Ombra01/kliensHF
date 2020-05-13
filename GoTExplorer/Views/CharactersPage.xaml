@@ -26,7 +26,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader Content="GoTExplorer" Grid.Row="0" />
+        <controls:PageHeader Content="Characters" Grid.Row="0" />
 
         <ListView>
             <ListView x:Name="CharacterList" HorizontalAlignment="Left" Height="auto" Margin="20,112,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource CharactersViewSource}}" IsItemClickEnabled="True" ItemClick="Character_ItemClick">
