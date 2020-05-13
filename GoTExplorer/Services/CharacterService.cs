@@ -24,9 +24,9 @@ namespace GoTExplorer.Services
             }
         }
 
-        public async Task<List<Character>> GetCharactersAsync()
+        public async Task<List<Character>> GetCharactersAsync(int pageNumber)
         {
-            return await GetAsync<List<Character>>(new Uri(serverUrl, "api/characters?page=2"));
+            return await GetAsync<List<Character>>(new Uri(serverUrl, "api/characters?page=" + pageNumber));
         }
 
         public async Task<Character> GetCharacterAsync(int id)

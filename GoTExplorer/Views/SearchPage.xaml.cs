@@ -40,10 +40,10 @@ namespace GoTExplorer.Views
                 //ResultsFrame.Navigate(typeof(BooksPage));
                 ViewModel.NavigateToBooksPage();
             }
-            /*else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && string.IsNullOrEmpty(NameSearch.Text))
+            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && string.IsNullOrEmpty(NameSearch.Text))
             {
-                ViewModel.NavigateToCharactersPage();
-            }*/
+                ViewModel.NavigateToCharactersPage(1);
+            }
             /*else
             {
                 Frame.Navigate(typeof(WelcomePage));
