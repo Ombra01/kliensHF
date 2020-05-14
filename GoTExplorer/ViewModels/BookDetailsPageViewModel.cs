@@ -13,14 +13,14 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
 {
-    public class BookDetailsPageViewModel : ViewModelBase
+    public class BookDetailsPageViewModel : DetailsPageViewModelBase
     {
-        private Book _book;
+        /*private Book _book;
         public Book Book
         {
             get { return _book; }
             set { Set(ref _book, value); }
-        }
+        }*/
 
         public ObservableCollection<Author> Authors { get; set; } = new ObservableCollection<Author>();
 
@@ -34,12 +34,12 @@ namespace GoTExplorer.ViewModels
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
         public ObservableCollection<Character> PoVCharacters { get; set; } = new ObservableCollection<Character>();
 
-        private Character _character;
+        /*private Character _character;
         public Character Character
         {
             get { return _character; }
             set { Set(ref _character, value); }
-        }
+        }*/
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
@@ -81,7 +81,7 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        private async void TransformUriToCharacter(string uri, ObservableCollection<Character> characterList)
+        /*private async void TransformUriToCharacter(string uri, ObservableCollection<Character> characterList)
         {
             string[] urlTokens = uri.Split('/');
             int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
@@ -89,7 +89,7 @@ namespace GoTExplorer.ViewModels
             var service = new CharacterService();
             Character = await service.GetCharacterAsync(characterId);
             characterList.Add(Character);
-        }
+        }*/
 
         public void NavigateToCharacterDetailsPage(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
     }

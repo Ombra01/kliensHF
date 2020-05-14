@@ -12,14 +12,14 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
 {
-    class CharacterDetailsPageViewModel : ViewModelBase
+    class CharacterDetailsPageViewModel : DetailsPageViewModelBase
     {
-        private Character _character;
+        /*private Character _character;
         public Character Character
         {
             get { return _character; }
             set { Set(ref _character, value); }
-        }
+        }*/
 
         /*public ObservableCollection<House> Allegiances { get; set; } = new ObservableCollection<House>();
 
@@ -33,12 +33,12 @@ namespace GoTExplorer.ViewModels
         public ObservableCollection<Book> Books { get; set; } = new ObservableCollection<Book>();
         public ObservableCollection<Book> PoVBooks { get; set; } = new ObservableCollection<Book>();
 
-        private Book _book;
+        /*private Book _book;
         public Book Book
         {
             get { return _book; }
             set { Set(ref _book, value); }
-        }
+        }*/
 
         public ObservableCollection<Models.Attribute> Titles { get; set; } = new ObservableCollection<Models.Attribute>();
         public ObservableCollection<Models.Attribute> Aliases { get; set; } = new ObservableCollection<Models.Attribute>();
@@ -52,11 +52,34 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _attribute, value); }
         }
 
+        private Character _father;
+        public Character Father
+        {
+            get { return _father; }
+            set { Set(ref _father, value); }
+        }
+
+        private Character _mother;
+        public Character Mother
+        {
+            get { return _mother; }
+            set { Set(ref _mother, value); }
+        }
+
+        private Character _spouse;
+        public Character Spouse
+        {
+            get { return _spouse; }
+            set { Set(ref _spouse, value); }
+        }
+
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             var characterId = (int)parameter;
             var service = new CharacterService();
             Character = await service.GetCharacterAsync(characterId);
+
+            await base.OnNavigatedToAsync(parameter, mode, state);
 
             foreach (string title in Character.titles)
             {
@@ -97,6 +120,10 @@ namespace GoTExplorer.ViewModels
                 TransformUriToBook(characterUri, PoVBooks);
             }
 
+            TransformUriToCharacter(Character.father, Father);
+            TransformUriToCharacter(Character.mother, Mother);
+            TransformUriToCharacter(Character.spouse, Spouse);
+
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
@@ -110,7 +137,7 @@ namespace GoTExplorer.ViewModels
             houseList.Add(House);
         }*/
 
-        private async void TransformUriToBook(string uri, ObservableCollection<Book> bookList)
+        /*private async void TransformUriToBook(string uri, ObservableCollection<Book> bookList)
         {
             string[] urlTokens = uri.Split('/');
             int bookId = int.Parse(urlTokens[urlTokens.Length - 1]);
@@ -120,15 +147,17 @@ namespace GoTExplorer.ViewModels
             bookList.Add(Book);
         }
 
-        private async void TransformUriToCharacter(string uri, ObservableCollection<Book> bookList)
+        private async void TransformUriToCharacter(string uri, Character character)
         {
-            string[] urlTokens = uri.Split('/');
-            int bookId = int.Parse(urlTokens[urlTokens.Length - 1]);
+            if (uri != null && !uri.Equals(""))
+            {
+                string[] urlTokens = uri.Split('/');
+                int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
 
-            var service = new BookService();
-            Book = await service.GetBookAsync(bookId);
-            bookList.Add(Book);
-        }
+                var service = new CharacterService();
+                character = await service.GetCharacterAsync(characterId);
+            }
+        }*/
 
         //public void NavigateToHouseDetailsPage(int bookId) { NavigationService.Navigate(typeof(HouseDetailsPage), houseId); }
         public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
