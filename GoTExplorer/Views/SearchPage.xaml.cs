@@ -53,6 +53,10 @@ namespace GoTExplorer.Views
             {
                 ViewModel.NavigateToBookDetailsPage(NameSearch.Text);
             }
+            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && !string.IsNullOrEmpty(NameSearch.Text))
+            {
+                ViewModel.NavigateToCharacterDetailsPage(NameSearch.Text);
+            }
         }
     }
 }

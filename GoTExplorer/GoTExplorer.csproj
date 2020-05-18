@@ -181,6 +181,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Fonts\GameOfThrones.ttf" />
     <None Include="GoTExplorer_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -21,9 +21,9 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _character, value); }
         }*/
 
-        /*public ObservableCollection<House> Allegiances { get; set; } = new ObservableCollection<House>();
+        public ObservableCollection<string> Allegiances { get; set; } = new ObservableCollection<string>();
 
-        private House _house;
+        /*private House _house;
         public House House
         {
             get { return _house; }
@@ -75,9 +75,25 @@ namespace GoTExplorer.ViewModels
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
-            var characterId = (int)parameter;
-            var service = new CharacterService();
-            Character = await service.GetCharacterAsync(characterId);
+            int intParam = 0;
+            if (int.TryParse(parameter.ToString(), out intParam))
+            {
+                var characterId = (int)parameter;
+                var service = new CharacterService();
+                Character = await service.GetCharacterAsync(characterId);
+            }
+            else
+            {
+                var characterName = (string)parameter;
+                var service = new CharacterService();
+
+                var characterList = await service.GetCharacterAsync(characterName);
+                foreach (var item in characterList)
+                {
+                    Character = item;
+                }
+
+            }
 
             await base.OnNavigatedToAsync(parameter, mode, state);
 

@@ -18,7 +18,7 @@
     <Page.Resources>
         <CollectionViewSource x:Key="HousesViewSource"
                                   IsSourceGrouped="False"
-                                  Source="{Binding Houses}"/>
+                                  Source="{Binding Allegiances}"/>
         <CollectionViewSource x:Key="BooksViewSource"
                                   IsSourceGrouped="False"
                                   Source="{Binding Books}"/>
@@ -49,7 +49,7 @@
 
         <ListView HorizontalAlignment="Left" Height="auto" Margin="80,80,0,0" VerticalAlignment="Top" SelectionMode="None" Grid.Row="1">
             <Grid>
-                <TextBlock Text="{Binding Character.name}" Margin="50,0,0,60" FontSize="44"/>
+                <TextBlock Text="{Binding Character.name}" Margin="50,0,0,60" FontSize="32" FontFamily="/Assets/Fonts/GameOfThrones.ttf#Game of Thrones" />
             </Grid>
             <Grid>
                 <TextBlock Text="Gender:" Margin="10,0,0,30" Width="200" />
@@ -69,7 +69,7 @@
             </Grid>
             <Grid>
                 <TextBlock Text="Titles:" Margin="110,0,0,30" Width="200" />
-                <ListView ItemsSource="{Binding Source={StaticResource TitlesViewSource}}">
+                <ListView ItemsSource="{Binding Source={StaticResource TitlesViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding value, Mode=OneWay}" Margin="195,0,0,30" Width="200" />
@@ -79,7 +79,7 @@
             </Grid>
             <Grid>
                 <TextBlock Text="Aliases:" Margin="110,0,0,30" Width="200" />
-                <ListView ItemsSource="{Binding Source={StaticResource AliasesViewSource}}">
+                <ListView ItemsSource="{Binding Source={StaticResource AliasesViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding value, Mode=OneWay}" Margin="195,0,0,30" Width="200" />
@@ -131,7 +131,7 @@
             </Grid>
             <Grid>
                 <TextBlock Text="TV Series:" Margin="110,0,0,30" Width="200" />
-                <ListView ItemsSource="{Binding Source={StaticResource SeriesViewSource}}">
+                <ListView ItemsSource="{Binding Source={StaticResource SeriesViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding value, Mode=OneWay}" Margin="195,0,0,30" Width="200" />
@@ -141,7 +141,7 @@
             </Grid>
             <Grid>
                 <TextBlock Text="Played by:" Margin="110,0,0,30" Width="200" />
-                <ListView ItemsSource="{Binding Source={StaticResource ActorsViewSource}}">
+                <ListView ItemsSource="{Binding Source={StaticResource ActorsViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding value, Mode=OneWay}" Margin="195,0,0,30" Width="200" />

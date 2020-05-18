@@ -16,7 +16,7 @@
     <SplitView DisplayMode="CompactInline" IsPaneOpen="True">
         <SplitView.Pane>
             <ListView HorizontalAlignment="Left" Height="auto" Margin="20,80,0,0" VerticalAlignment="Top">
-                <TextBlock Text="Search GoT" Margin="0,0,0,60" FontSize="44"/>
+                <TextBlock Text="Search GoT" Margin="0,0,0,60" FontSize="32" FontFamily="/Assets/Fonts/GameOfThrones.ttf#Game of Thrones" />
                 <ComboBox x:Name="TypeSelection" Header="Search for:"  Margin="10,0,0,30" Width="200">
                     <ComboBoxItem Content="-- Please select --" IsSelected="True" />
                     <ComboBoxItem Content="Book"/>

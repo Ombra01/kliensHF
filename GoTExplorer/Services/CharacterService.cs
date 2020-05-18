@@ -33,5 +33,10 @@ namespace GoTExplorer.Services
         {
             return await GetAsync<Character>(new Uri(serverUrl, $"api/characters/{id}"));
         }
+
+        public async Task<List<Character>> GetCharacterAsync(string name)
+        {
+            return await GetAsync<List<Character>>(new Uri(serverUrl, $"api/characters?name=" + name.Replace(' ', '+')));
+        }
     }
 }

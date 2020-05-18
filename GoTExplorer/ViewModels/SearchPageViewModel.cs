@@ -27,5 +27,7 @@ namespace GoTExplorer.ViewModels
             int pageNumber = App.currentCharactersPageNumber;
             NavigationService.Navigate(typeof(CharactersPage), pageNumber);
         }
+
+        public void NavigateToCharacterDetailsPage(string characterName) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterName); }
     }
 }
