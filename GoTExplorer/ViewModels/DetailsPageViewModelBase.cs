@@ -1,5 +1,6 @@
 ﻿using GoTExplorer.Models;
 using GoTExplorer.Services;
+using GoTExplorer.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -80,5 +81,7 @@ namespace GoTExplorer.ViewModels
                 character = await service.GetCharacterAsync(characterId);
             }
         }
+
+        public void NavigateToNotFoundPage() { NavigationService.Navigate(typeof(NotFoundPage)); }
     }
 }

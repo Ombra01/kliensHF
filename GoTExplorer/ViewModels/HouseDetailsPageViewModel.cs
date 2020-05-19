@@ -77,6 +77,12 @@ namespace GoTExplorer.ViewModels
 
             }
 
+            if (House == null)
+            {
+                NavigateToNotFoundPage();
+                return;
+            }
+
             await base.OnNavigatedToAsync(parameter, mode, state);
 
             foreach (string title in House.titles)

@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\DetailsPageViewModelBase.cs" />
     <Compile Include="ViewModels\HouseDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\HousesPageViewModel.cs" />
+    <Compile Include="ViewModels\NotFoundPageViewModel.cs" />
     <Compile Include="ViewModels\SearchPageViewModel.cs" />
     <Compile Include="ViewModels\WelcomePageViewModel.cs" />
     <Compile Include="Views\CharacterDetailsPage.xaml.cs">
@@ -128,6 +129,9 @@
     </Compile>
     <Compile Include="Views\HousesPage.xaml.cs">
       <DependentUpon>HousesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotFoundPage.xaml.cs">
+      <DependentUpon>NotFoundPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
@@ -182,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HousesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotFoundPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

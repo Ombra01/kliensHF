@@ -62,6 +62,12 @@ namespace GoTExplorer.ViewModels
                 
             }
 
+            if (Book == null)
+            {
+                NavigateToNotFoundPage();
+                return;
+            }
+
             foreach (string authorName in Book.authors)
             {
 

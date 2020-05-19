@@ -95,6 +95,12 @@ namespace GoTExplorer.ViewModels
 
             }
 
+            if (Character == null)
+            {
+                NavigateToNotFoundPage();
+                return;
+            }
+
             await base.OnNavigatedToAsync(parameter, mode, state);
 
             foreach (string title in Character.titles)

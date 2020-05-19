@@ -13,7 +13,7 @@
         <vm:SearchPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
-    <ListView HorizontalAlignment="Center" Height="auto" Margin="0,-150,0,0" VerticalAlignment="Center">
+    <ListView HorizontalAlignment="Center" Height="auto" Margin="0,-150,0,0" VerticalAlignment="Center" SelectionMode="None">
         <TextBlock Text="Search GoT" Margin="0,0,0,60" FontSize="32" FontFamily="/Assets/Fonts/GameOfThrones.ttf#Game of Thrones" />
         <ComboBox x:Name="TypeSelection" Header="Search for:"  Margin="10,0,0,30" Width="200">
             <ComboBoxItem Content="-- Please select --" IsSelected="True" />
