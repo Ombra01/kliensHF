@@ -17,7 +17,7 @@ namespace GoTExplorer.Views
             var book = (Book)e.ClickedItem;
             string[] urlTokens = book.url.Split('/');
 
-            ViewModel.NavigateToBookDetails(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToBookDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
         }
 
         private void NextPageButton_Click(object sender, RoutedEventArgs e)

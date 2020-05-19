@@ -28,7 +28,7 @@ namespace GoTExplorer.Views
             this.InitializeComponent();
         }
 
-        private void ValarMorghoulisButton_Click(object sender, RoutedEventArgs e)
+        private void ValarMorghulisButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.NavigateToSearchPage();
         }

@@ -26,6 +26,13 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _character, value); }
         }
 
+        private House _house;
+        public House House
+        {
+            get { return _house; }
+            set { Set(ref _house, value); }
+        }
+
         protected async void TransformUriToBook(string uri, ObservableCollection<Book> bookList)
         {
             if (uri != null && !uri.Equals(""))
@@ -50,6 +57,16 @@ namespace GoTExplorer.ViewModels
                 Character = await service.GetCharacterAsync(characterId);
                 characterList.Add(Character);
             }
+        }
+
+        protected async void TransformUriToHouse(string uri, ObservableCollection<House> houseList)
+        {
+            string[] urlTokens = uri.Split('/');
+            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            var service = new HouseService();
+            House = await service.GetHouseAsync(houseId);
+            houseList.Add(House);
         }
 
         protected async void TransformUriToCharacter(string uri, Character character)

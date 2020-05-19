@@ -21,7 +21,7 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _character, value); }
         }*/
 
-        public ObservableCollection<string> Allegiances { get; set; } = new ObservableCollection<string>();
+        public ObservableCollection<House> Allegiances { get; set; } = new ObservableCollection<House>();
 
         /*private House _house;
         public House House
@@ -99,32 +99,28 @@ namespace GoTExplorer.ViewModels
 
             foreach (string title in Character.titles)
             {
-
                 Titles.Add(new Models.Attribute(title));
             }
 
             foreach (string alias in Character.aliases)
             {
-
                 Aliases.Add(new Models.Attribute(alias));
             }
 
             foreach (string serie in Character.tvSeries)
             {
-
                 Series.Add(new Models.Attribute(serie));
             }
 
             foreach (string actor in Character.playedBy)
             {
-
                 Actors.Add(new Models.Attribute(actor));
             }
 
-            /*foreach (string house in Character.allegiances)
+            foreach (string houseUri in Character.allegiances)
             {
-                TransformUriToHouse(house, Allegiances);
-            }*/
+                TransformUriToHouse(houseUri, Allegiances);
+            }
 
             foreach (string characterUri in Character.books)
             {
@@ -149,7 +145,7 @@ namespace GoTExplorer.ViewModels
             int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
 
             var service = new HouseService();
-            House = await service.GetBookAsync(houseId);
+            House = await service.GetHouseAsync(houseId);
             houseList.Add(House);
         }*/
 
@@ -175,7 +171,7 @@ namespace GoTExplorer.ViewModels
             }
         }*/
 
-        //public void NavigateToHouseDetailsPage(int bookId) { NavigationService.Navigate(typeof(HouseDetailsPage), houseId); }
+        public void NavigateToHouseDetailsPage(int houseId) { NavigationService.Navigate(typeof(HouseDetailsPage), houseId); }
         public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
     }
 }

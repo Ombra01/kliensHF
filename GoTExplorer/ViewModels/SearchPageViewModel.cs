@@ -29,5 +29,16 @@ namespace GoTExplorer.ViewModels
         }
 
         public void NavigateToCharacterDetailsPage(string characterName) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterName); }
+
+        public void NavigateToHousesPage()
+        {
+            App.currentHousesPageNumber = 1;
+            int pageNumber = App.currentHousesPageNumber;
+            NavigationService.Navigate(typeof(HousesPage), pageNumber);
+        }
+
+        public void NavigateToHouseDetailsPage(string houseName) { NavigationService.Navigate(typeof(HouseDetailsPage), houseName); }
+
+        public void NavigateToSearchPage() { NavigationService.Navigate(typeof(SearchPage)); }
     }
 }

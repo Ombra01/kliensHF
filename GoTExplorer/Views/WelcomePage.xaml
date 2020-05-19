@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid>
-        <Button x:Name="ValarMorghoulisButton" Content="Valar Morghoulis" Margin="0,750,0,100" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="86" Width="206" Click="ValarMorghoulisButton_Click"/>
-        <TextBlock Text="Welcome to the world of Game of Thrones" TextAlignment="Center" FontSize="115" FontFamily="/Assets/Fonts/GameOfThrones.ttf#Game of Thrones" VerticalAlignment="Top" TextWrapping="Wrap" Height="546" Margin="145,126,145,0"/>
+        <Button x:Name="ValarMorghulisButton" Content="Valar Morghulis" Margin="0,550,0,100" VerticalAlignment="top" HorizontalAlignment="Center" MinHeight="86" Width="206" Click="ValarMorghulisButton_Click"/>
+        <TextBlock Text="Welcome to the world of Game of Thrones" TextAlignment="Center" FontSize="86" FontFamily="/Assets/Fonts/GameOfThrones.ttf#Game of Thrones" VerticalAlignment="Top" TextWrapping="Wrap" Height="392" Margin="145,120,145,0"/>
     </Grid>
 </Page>

@@ -33,21 +33,20 @@ namespace GoTExplorer.Views
         {
             if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "-- Please select --")
             {
-                Frame.Navigate(typeof(SearchPage));
+                ViewModel.NavigateToSearchPage();
             } 
             else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && string.IsNullOrEmpty(NameSearch.Text))
             {
-                //ResultsFrame.Navigate(typeof(BooksPage));
                 ViewModel.NavigateToBooksPage();
             }
             else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && string.IsNullOrEmpty(NameSearch.Text))
             {
                 ViewModel.NavigateToCharactersPage();
             }
-            /*else
+            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "House" && string.IsNullOrEmpty(NameSearch.Text))
             {
-                Frame.Navigate(typeof(WelcomePage));
-            }*/
+                ViewModel.NavigateToHousesPage();
+            }
 
             if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && !string.IsNullOrEmpty(NameSearch.Text))
             {
@@ -56,6 +55,10 @@ namespace GoTExplorer.Views
             else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && !string.IsNullOrEmpty(NameSearch.Text))
             {
                 ViewModel.NavigateToCharacterDetailsPage(NameSearch.Text);
+            }
+            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "House" && !string.IsNullOrEmpty(NameSearch.Text))
+            {
+                ViewModel.NavigateToHouseDetailsPage(NameSearch.Text);
             }
         }
     }

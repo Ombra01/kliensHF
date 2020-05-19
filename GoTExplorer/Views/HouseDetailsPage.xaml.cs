@@ -21,27 +21,27 @@ namespace GoTExplorer.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CharacterDetailsPage : Page
+    public sealed partial class HouseDetailsPage : Page
     {
-        public CharacterDetailsPage()
+        public HouseDetailsPage()
         {
             this.InitializeComponent();
         }
 
-        private void Book_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var book = (Book)e.ClickedItem;
-            string[] urlTokens = book.url.Split('/');
-
-            ViewModel.NavigateToBookDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
-        }
-
         private void House_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var book = (House)e.ClickedItem;
-            string[] urlTokens = book.url.Split('/');
+            var house = (House)e.ClickedItem;
+            string[] urlTokens = house.url.Split('/');
 
             ViewModel.NavigateToHouseDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+        }
+
+        private void Character_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var character = (Character)e.ClickedItem;
+            string[] urlTokens = character.url.Split('/');
+
+            ViewModel.NavigateToCharacterDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
         }
     }
 }

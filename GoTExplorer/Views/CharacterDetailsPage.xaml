@@ -46,6 +46,9 @@
         </Grid.RowDefinitions>
 
         <controls:PageHeader Content="{Binding Character.name}" Grid.Row="0" />
+        <controls:PageHeader>
+            <AppBarButton Label="New Search" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible" />
+        </controls:PageHeader>
 
         <ListView HorizontalAlignment="Left" Height="auto" Margin="80,80,0,0" VerticalAlignment="Top" SelectionMode="None" Grid.Row="1">
             <Grid>
@@ -68,7 +71,7 @@
                 <TextBlock Text="{Binding Character.died}" Margin="210,0,0,30" Width="200" />
             </Grid>
             <Grid>
-                <TextBlock Text="Titles:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="Titles:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource TitlesViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -78,7 +81,7 @@
                 </ListView>
             </Grid>
             <Grid>
-                <TextBlock Text="Aliases:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="Aliases:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource AliasesViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -100,7 +103,7 @@
                 <TextBlock Text="{Binding Spouse.name}" Margin="210,0,0,30" Width="200" />
             </Grid>
             <Grid>
-                <TextBlock Text="Allegiances:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="Allegiances:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource HousesViewSource}}" IsItemClickEnabled="True" ItemClick="House_ItemClick">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -110,7 +113,7 @@
                 </ListView>
             </Grid>
             <Grid>
-                <TextBlock Text="Books:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="Books:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource BooksViewSource}}" IsItemClickEnabled="True" ItemClick="Book_ItemClick">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -120,7 +123,7 @@
                 </ListView>
             </Grid>
             <Grid>
-                <TextBlock Text="PoV Books:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="PoV Books:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource PoVBooksViewSource}}" IsItemClickEnabled="True" ItemClick="Book_ItemClick">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -130,7 +133,7 @@
                 </ListView>
             </Grid>
             <Grid>
-                <TextBlock Text="TV Series:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="TV Series:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource SeriesViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -140,7 +143,7 @@
                 </ListView>
             </Grid>
             <Grid>
-                <TextBlock Text="Played by:" Margin="110,0,0,30" Width="200" />
+                <TextBlock Text="Played by:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource ActorsViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
