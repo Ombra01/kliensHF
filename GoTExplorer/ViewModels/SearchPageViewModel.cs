@@ -40,5 +40,38 @@ namespace GoTExplorer.ViewModels
         public void NavigateToHouseDetailsPage(string houseName) { NavigationService.Navigate(typeof(HouseDetailsPage), houseName); }
 
         public void NavigateToSearchPage() { NavigationService.Navigate(typeof(SearchPage)); }
+
+        public void SearchNavigation(string searchType, string searchName)
+        {
+            if (searchType == "-- Please select --")
+            {
+                NavigateToSearchPage();
+            }
+            else if (searchType == "Book" && string.IsNullOrEmpty(searchName))
+            {
+                NavigateToBooksPage();
+            }
+            else if (searchType == "Character" && string.IsNullOrEmpty(searchName))
+            {
+                NavigateToCharactersPage();
+            }
+            else if (searchType == "House" && string.IsNullOrEmpty(searchName))
+            {
+                NavigateToHousesPage();
+            }
+
+            if (searchType == "Book" && !string.IsNullOrEmpty(searchName))
+            {
+                NavigateToBookDetailsPage(searchName);
+            }
+            else if (searchType == "Character" && !string.IsNullOrEmpty(searchName))
+            {
+                NavigateToCharacterDetailsPage(searchName);
+            }
+            else if (searchType == "House" && !string.IsNullOrEmpty(searchName))
+            {
+                NavigateToHouseDetailsPage(searchName);
+            }
+        }
     }
 }

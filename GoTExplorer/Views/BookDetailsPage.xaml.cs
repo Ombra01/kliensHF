@@ -30,10 +30,7 @@ namespace GoTExplorer.Views
 
         private void Character_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var book = (Character)e.ClickedItem;
-            string[] urlTokens = book.url.Split('/');
-
-            ViewModel.NavigateToCharacterDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToCharacterDetailsPage((Character)e.ClickedItem);
         }
     }
 }

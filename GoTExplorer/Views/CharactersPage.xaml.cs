@@ -30,38 +30,17 @@ namespace GoTExplorer.Views
 
         private void Character_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var character = (Character)e.ClickedItem;
-            string[] urlTokens = character.url.Split('/');
-
-            ViewModel.NavigateToCharacterDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToCharacterDetailsPage((Character)e.ClickedItem);
         }
 
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
-            int newPageNumber;
-            if (CharacterList.Items.Count == 10)
-            {
-                newPageNumber = ++App.currentCharactersPageNumber;
-            } else
-            {
-                newPageNumber = App.currentCharactersPageNumber;
-            }
-
-            ViewModel.NavigateToCharactersPage(newPageNumber);
+            ViewModel.NavigateToNextCharactersPage(CharacterList.Items.Count);
         }
 
         private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
         {
-            int newPageNumber;
-            if (App.currentCharactersPageNumber > 1)
-            {
-                newPageNumber = --App.currentCharactersPageNumber;
-            } else
-            {
-                newPageNumber = 1;
-            }
-
-            ViewModel.NavigateToCharactersPage(newPageNumber);
+            ViewModel.NavigateToPreviousCharactersPage();
         }
     }
 }

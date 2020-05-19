@@ -31,35 +31,7 @@ namespace GoTExplorer.Views
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "-- Please select --")
-            {
-                ViewModel.NavigateToSearchPage();
-            } 
-            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && string.IsNullOrEmpty(NameSearch.Text))
-            {
-                ViewModel.NavigateToBooksPage();
-            }
-            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && string.IsNullOrEmpty(NameSearch.Text))
-            {
-                ViewModel.NavigateToCharactersPage();
-            }
-            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "House" && string.IsNullOrEmpty(NameSearch.Text))
-            {
-                ViewModel.NavigateToHousesPage();
-            }
-
-            if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Book" && !string.IsNullOrEmpty(NameSearch.Text))
-            {
-                ViewModel.NavigateToBookDetailsPage(NameSearch.Text);
-            }
-            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "Character" && !string.IsNullOrEmpty(NameSearch.Text))
-            {
-                ViewModel.NavigateToCharacterDetailsPage(NameSearch.Text);
-            }
-            else if ((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString() == "House" && !string.IsNullOrEmpty(NameSearch.Text))
-            {
-                ViewModel.NavigateToHouseDetailsPage(NameSearch.Text);
-            }
+            ViewModel.SearchNavigation((TypeSelection.SelectedItem as ComboBoxItem).Content.ToString(), NameSearch.Text);
         }
     }
 }

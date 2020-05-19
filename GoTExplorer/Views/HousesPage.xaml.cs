@@ -30,40 +30,17 @@ namespace GoTExplorer.Views
 
         private void House_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var house = (House)e.ClickedItem;
-            string[] urlTokens = house.url.Split('/');
-
-            ViewModel.NavigateToHouseDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToHouseDetailsPage((House)e.ClickedItem);
         }
 
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
-            int newPageNumber;
-            if (HouseList.Items.Count == 10)
-            {
-                newPageNumber = ++App.currentHousesPageNumber;
-            }
-            else
-            {
-                newPageNumber = App.currentHousesPageNumber;
-            }
-
-            ViewModel.NavigateToHousesPage(newPageNumber);
+            ViewModel.NavigateToNextHousesPage(HouseList.Items.Count);
         }
 
         private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
         {
-            int newPageNumber;
-            if (App.currentHousesPageNumber > 1)
-            {
-                newPageNumber = --App.currentHousesPageNumber;
-            }
-            else
-            {
-                newPageNumber = 1;
-            }
-
-            ViewModel.NavigateToHousesPage(newPageNumber);
+            ViewModel.NavigateToPreviousHousesPage();
         }
     }
 }

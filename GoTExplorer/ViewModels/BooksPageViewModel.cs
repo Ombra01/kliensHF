@@ -28,7 +28,42 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        public void NavigateToBooksPage(int pageNumber) { NavigationService.Navigate(typeof(BooksPage), pageNumber); }
-        public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
+        public void NavigateToNextBooksPage(int booksListCount)
+        {
+            int newPageNumber;
+            if (booksListCount == 10)
+            {
+                newPageNumber = ++App.currentBooksPageNumber;
+            }
+            else
+            {
+                newPageNumber = App.currentBooksPageNumber;
+            }
+
+            NavigationService.Navigate(typeof(BooksPage), newPageNumber);
+        }
+
+        public void NavigateToPreviousBooksPage()
+        {
+            int newPageNumber;
+            if (App.currentBooksPageNumber > 1)
+            {
+                newPageNumber = --App.currentBooksPageNumber;
+            }
+            else
+            {
+                newPageNumber = 1;
+            }
+
+            NavigationService.Navigate(typeof(BooksPage), newPageNumber);
+        }
+
+        public void NavigateToBookDetailsPage(Book book)
+        {
+            string[] urlTokens = book.url.Split('/');
+            int bookId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(BookDetailsPage), bookId);
+        }
     }
 }

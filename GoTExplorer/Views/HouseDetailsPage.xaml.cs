@@ -30,18 +30,12 @@ namespace GoTExplorer.Views
 
         private void House_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var house = (House)e.ClickedItem;
-            string[] urlTokens = house.url.Split('/');
-
-            ViewModel.NavigateToHouseDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToHouseDetailsPage((House)e.ClickedItem);
         }
 
         private void Character_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var character = (Character)e.ClickedItem;
-            string[] urlTokens = character.url.Split('/');
-
-            ViewModel.NavigateToCharacterDetailsPage(int.Parse(urlTokens[urlTokens.Length - 1]));
+            ViewModel.NavigateToCharacterDetailsPage((Character)e.ClickedItem);
         }
     }
 }

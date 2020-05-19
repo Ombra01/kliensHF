@@ -91,6 +91,12 @@ namespace GoTExplorer.ViewModels
             characterList.Add(Character);
         }*/
 
-        public void NavigateToCharacterDetailsPage(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
+        public void NavigateToCharacterDetailsPage(Character character)
+        {
+            string[] urlTokens = character.url.Split('/');
+            int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(CharacterDetailsPage), characterId);
+        }
     }
 }

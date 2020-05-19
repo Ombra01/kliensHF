@@ -112,7 +112,19 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        public void NavigateToHouseDetailsPage(int houseId) { NavigationService.Navigate(typeof(HouseDetailsPage), houseId); }
-        public void NavigateToCharacterDetailsPage(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
+        public void NavigateToHouseDetailsPage(House house)
+        {
+            string[] urlTokens = house.url.Split('/');
+            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(HouseDetailsPage), houseId);
+        }
+        public void NavigateToCharacterDetailsPage(Character character)
+        {
+            string[] urlTokens = character.url.Split('/');
+            int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(CharacterDetailsPage), characterId);
+        }
     }
 }

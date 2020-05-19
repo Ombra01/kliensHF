@@ -28,7 +28,42 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        public void NavigateToHousesPage(int pageNumber) { NavigationService.Navigate(typeof(HousesPage), pageNumber); }
-        public void NavigateToHouseDetailsPage(int houseId) { NavigationService.Navigate(typeof(HouseDetailsPage), houseId); }
+        public void NavigateToNextHousesPage(int housesListCount)
+        {
+            int newPageNumber;
+            if (housesListCount == 10)
+            {
+                newPageNumber = ++App.currentHousesPageNumber;
+            }
+            else
+            {
+                newPageNumber = App.currentHousesPageNumber;
+            }
+
+            NavigationService.Navigate(typeof(HousesPage), newPageNumber);
+        }
+
+        public void NavigateToPreviousHousesPage()
+        {
+            int newPageNumber;
+            if (App.currentHousesPageNumber > 1)
+            {
+                newPageNumber = --App.currentHousesPageNumber;
+            }
+            else
+            {
+                newPageNumber = 1;
+            }
+
+            NavigationService.Navigate(typeof(HousesPage), newPageNumber);
+        }
+
+        public void NavigateToHouseDetailsPage(House house)
+        {
+            string[] urlTokens = house.url.Split('/');
+            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(HouseDetailsPage), houseId);
+        }
     }
 }

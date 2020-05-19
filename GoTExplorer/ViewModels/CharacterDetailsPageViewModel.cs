@@ -171,7 +171,21 @@ namespace GoTExplorer.ViewModels
             }
         }*/
 
-        public void NavigateToHouseDetailsPage(int houseId) { NavigationService.Navigate(typeof(HouseDetailsPage), houseId); }
-        public void NavigateToBookDetailsPage(int bookId) { NavigationService.Navigate(typeof(BookDetailsPage), bookId); }
+        public void NavigateToHouseDetailsPage(House house)
+        {
+            string[] urlTokens = house.url.Split('/');
+            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+
+            NavigationService.Navigate(typeof(HouseDetailsPage), houseId);
+        }
+
+        public void NavigateToBookDetailsPage(Book book)
+        {
+            string[] urlTokens = book.url.Split('/');
+            int bookId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(BookDetailsPage), bookId);
+        }
     }
 }

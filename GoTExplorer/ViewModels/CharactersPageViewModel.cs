@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Template10.Mvvm;
+using Windows.Devices.PointOfService;
 using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
@@ -28,7 +29,42 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        public void NavigateToCharactersPage(int pageNumber) { NavigationService.Navigate(typeof(CharactersPage), pageNumber); }
-        public void NavigateToCharacterDetailsPage(int characterId) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterId); }
+        public void NavigateToNextCharactersPage(int charactersListCount)
+        {
+            int newPageNumber;
+            if (charactersListCount == 10)
+            {
+                newPageNumber = ++App.currentCharactersPageNumber;
+            }
+            else
+            {
+                newPageNumber = App.currentCharactersPageNumber;
+            }
+
+            NavigationService.Navigate(typeof(CharactersPage), newPageNumber);
+        }
+
+        public void NavigateToPreviousCharactersPage()
+        {
+            int newPageNumber;
+            if (App.currentCharactersPageNumber > 1)
+            {
+                newPageNumber = --App.currentCharactersPageNumber;
+            }
+            else
+            {
+                newPageNumber = 1;
+            }
+
+            NavigationService.Navigate(typeof(CharactersPage), newPageNumber);
+        }
+
+        public void NavigateToCharacterDetailsPage(Character character)
+        {
+            string[] urlTokens = character.url.Split('/');
+            int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
+
+            NavigationService.Navigate(typeof(CharacterDetailsPage), characterId);
+        }
     }
 }
