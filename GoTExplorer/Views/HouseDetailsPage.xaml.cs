@@ -14,30 +14,46 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace GoTExplorer.Views
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     Page code behind for a house's details page.
     /// </summary>
     public sealed partial class HouseDetailsPage : Page
     {
+        /// <summary>
+        ///     Initializes the page.
+        /// </summary>
         public HouseDetailsPage()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        ///     Handles a click event on a house list.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void House_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewModel.NavigateToHouseDetailsPage((House)e.ClickedItem);
         }
 
+        /// <summary>
+        ///     Handles a click event on a character list.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void Character_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewModel.NavigateToCharacterDetailsPage((Character)e.ClickedItem);
         }
 
+        /// <summary>
+        ///     Handles a click event on the new search button.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void NewSearchButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.NavigateToSearchPage();

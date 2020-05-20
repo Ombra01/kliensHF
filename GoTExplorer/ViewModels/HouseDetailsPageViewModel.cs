@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
 {
+    /// <summary>
+    ///     View model for house details pages.
+    /// </summary>
     class HouseDetailsPageViewModel : DetailsPageViewModelBase
     {
         public ObservableCollection<Models.Attribute> Titles { get; set; } = new ObservableCollection<Models.Attribute>();
@@ -55,8 +58,15 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _founder, value); }
         }
 
+        /// <summary>
+        ///     Defines what happens when the page is navigated on.
+        /// </summary>
+        /// <param name="parameter">parameter.</param>
+        /// <param name="mode">navigation mode.</param>
+        /// <param name="state">state.</param>
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
+            //Deciding if the house is searched by id or name.
             int intParam = 0;
             if (int.TryParse(parameter.ToString(), out intParam))
             {
@@ -77,6 +87,7 @@ namespace GoTExplorer.ViewModels
 
             }
 
+            //If no such house is found, navigate the user to the not found page.
             if (House == null)
             {
                 NavigateToNotFoundPage();
@@ -85,6 +96,7 @@ namespace GoTExplorer.ViewModels
 
             await base.OnNavigatedToAsync(parameter, mode, state);
 
+            //Fill the lists on the UI, transforming uris if needed.
             foreach (string title in House.titles)
             {
                 Titles.Add(new Models.Attribute(title));
@@ -116,21 +128,6 @@ namespace GoTExplorer.ViewModels
             TransformUriToCharacter(House.founder, Founder);
 
             await base.OnNavigatedToAsync(parameter, mode, state);
-        }
-
-        public void NavigateToHouseDetailsPage(House house)
-        {
-            string[] urlTokens = house.url.Split('/');
-            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-            NavigationService.Navigate(typeof(HouseDetailsPage), houseId);
-        }
-        public void NavigateToCharacterDetailsPage(Character character)
-        {
-            string[] urlTokens = character.url.Split('/');
-            int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-            NavigationService.Navigate(typeof(CharacterDetailsPage), characterId);
         }
     }
 }

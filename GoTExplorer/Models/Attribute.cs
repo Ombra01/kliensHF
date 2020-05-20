@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GoTExplorer.Models
 {
+    /// <summary>
+    ///     Model for list attributes.
+    /// </summary>
     class Attribute
     {
         public string value { get; set; }

@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace GoTExplorer.Models
 {
-
+    /// <summary>
+    ///     Model for characters.
+    /// </summary>
     public class Character
     {
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GoTExplorer.Models
 {
+    /// <summary>
+    ///     Model for books.
+    /// </summary>
     public class Book
     {
         public string url { get; set; }

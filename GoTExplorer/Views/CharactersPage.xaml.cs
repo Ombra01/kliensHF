@@ -14,30 +14,46 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace GoTExplorer.Views
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     Page code behind for the characters page.
     /// </summary>
     public sealed partial class CharactersPage : Page
     {
+        /// <summary>
+        ///     Initializes the page.
+        /// </summary>
         public CharactersPage()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        ///     Handles a click event on a character list.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void Character_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewModel.NavigateToCharacterDetailsPage((Character)e.ClickedItem);
         }
 
+        /// <summary>
+        ///     Handles a click event on the next page button.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.NavigateToNextCharactersPage(CharacterList.Items.Count);
         }
 
+        /// <summary>
+        ///     Handles a click event on the previous page button.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.NavigateToPreviousCharactersPage();

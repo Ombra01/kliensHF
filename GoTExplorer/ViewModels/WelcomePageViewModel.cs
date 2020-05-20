@@ -10,8 +10,14 @@ using Template10.Mvvm;
 
 namespace GoTExplorer.ViewModels
 {
+    /// <summary>
+    ///     View model for the welcome page.
+    /// </summary>
     class WelcomePageViewModel : ViewModelBase
     {
+        /// <summary>
+        ///     Navigates to the search page.
+        /// </summary>
         public void NavigateToSearchPage() { NavigationService.Navigate(typeof(SearchPage)); }
     }
 }

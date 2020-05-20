@@ -12,33 +12,16 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
 {
+    /// <summary>
+    ///     View model for character details pages.
+    /// </summary>
     class CharacterDetailsPageViewModel : DetailsPageViewModelBase
     {
-        /*private Character _character;
-        public Character Character
-        {
-            get { return _character; }
-            set { Set(ref _character, value); }
-        }*/
 
         public ObservableCollection<House> Allegiances { get; set; } = new ObservableCollection<House>();
 
-        /*private House _house;
-        public House House
-        {
-            get { return _house; }
-            set { Set(ref _house, value); }
-        }*/
-
         public ObservableCollection<Book> Books { get; set; } = new ObservableCollection<Book>();
         public ObservableCollection<Book> PoVBooks { get; set; } = new ObservableCollection<Book>();
-
-        /*private Book _book;
-        public Book Book
-        {
-            get { return _book; }
-            set { Set(ref _book, value); }
-        }*/
 
         public ObservableCollection<Models.Attribute> Titles { get; set; } = new ObservableCollection<Models.Attribute>();
         public ObservableCollection<Models.Attribute> Aliases { get; set; } = new ObservableCollection<Models.Attribute>();
@@ -73,8 +56,15 @@ namespace GoTExplorer.ViewModels
             set { Set(ref _spouse, value); }
         }
 
+        /// <summary>
+        ///     Defines what happens when the page is navigated on.
+        /// </summary>
+        /// <param name="parameter">parameter.</param>
+        /// <param name="mode">navigation mode.</param>
+        /// <param name="state">state.</param>
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
+            //Deciding if the character is searched by id or name.
             int intParam = 0;
             if (int.TryParse(parameter.ToString(), out intParam))
             {
@@ -95,6 +85,7 @@ namespace GoTExplorer.ViewModels
 
             }
 
+            //If no such character is found, navigate the user to the not found page.
             if (Character == null)
             {
                 NavigateToNotFoundPage();
@@ -103,6 +94,8 @@ namespace GoTExplorer.ViewModels
 
             await base.OnNavigatedToAsync(parameter, mode, state);
 
+
+            //Fill the lists on the UI, transforming uris if needed.
             foreach (string title in Character.titles)
             {
                 Titles.Add(new Models.Attribute(title));
@@ -145,47 +138,10 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
-        /*private async void TransformUriToHouse(string uri, ObservableCollection<House> houseList)
-        {
-            string[] urlTokens = uri.Split('/');
-            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-            var service = new HouseService();
-            House = await service.GetHouseAsync(houseId);
-            houseList.Add(House);
-        }*/
-
-        /*private async void TransformUriToBook(string uri, ObservableCollection<Book> bookList)
-        {
-            string[] urlTokens = uri.Split('/');
-            int bookId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-            var service = new BookService();
-            Book = await service.GetBookAsync(bookId);
-            bookList.Add(Book);
-        }
-
-        private async void TransformUriToCharacter(string uri, Character character)
-        {
-            if (uri != null && !uri.Equals(""))
-            {
-                string[] urlTokens = uri.Split('/');
-                int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-                var service = new CharacterService();
-                character = await service.GetCharacterAsync(characterId);
-            }
-        }*/
-
-        public void NavigateToHouseDetailsPage(House house)
-        {
-            string[] urlTokens = house.url.Split('/');
-            int houseId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-
-            NavigationService.Navigate(typeof(HouseDetailsPage), houseId);
-        }
-
+        /// <summary>
+        ///     Navigates to a book's details page.
+        /// </summary>
+        /// <param name="book">the book whose page needs to be opened.</param>
         public void NavigateToBookDetailsPage(Book book)
         {
             string[] urlTokens = book.url.Split('/');

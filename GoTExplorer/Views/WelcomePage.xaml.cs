@@ -14,20 +14,26 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace GoTExplorer.Views
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     Page code behind for the welcome page.
     /// </summary>
     public sealed partial class WelcomePage : Page
     {
+        /// <summary>
+        ///     Initializes the page.
+        /// </summary>
         public WelcomePage()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        ///     Navigates the user to the search page.
+        /// </summary>
+        /// <param name="sender">sender object.</param>
+        ///  <param name="e">event args.</param>
         private void ValarMorghulisButton_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.NavigateToSearchPage();

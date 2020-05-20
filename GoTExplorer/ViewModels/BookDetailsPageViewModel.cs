@@ -13,15 +13,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
 {
+    /// <summary>
+    ///     View model for book details pages.
+    /// </summary>
     public class BookDetailsPageViewModel : DetailsPageViewModelBase
     {
-        /*private Book _book;
-        public Book Book
-        {
-            get { return _book; }
-            set { Set(ref _book, value); }
-        }*/
-
         public ObservableCollection<Author> Authors { get; set; } = new ObservableCollection<Author>();
 
         private string _author;
@@ -34,15 +30,15 @@ namespace GoTExplorer.ViewModels
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
         public ObservableCollection<Character> PoVCharacters { get; set; } = new ObservableCollection<Character>();
 
-        /*private Character _character;
-        public Character Character
-        {
-            get { return _character; }
-            set { Set(ref _character, value); }
-        }*/
-
+        /// <summary>
+        ///     Defines what happens when the page is navigated on.
+        /// </summary>
+        /// <param name="parameter">parameter.</param>
+        /// <param name="mode">navigation mode.</param>
+        /// <param name="state">state.</param>
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
+            //Deciding if the book is searched by id or name.
             int intParam = 0;
             if (int.TryParse(parameter.ToString(), out intParam))
             {
@@ -62,15 +58,16 @@ namespace GoTExplorer.ViewModels
                 
             }
 
+            //If no such book is found, navigate the user to the not found page.
             if (Book == null)
             {
                 NavigateToNotFoundPage();
                 return;
             }
 
+            //Fill the lists on the UI, transforming uris if needed.
             foreach (string authorName in Book.authors)
             {
-
                 Authors.Add(new Author(authorName));
             }
 
@@ -85,24 +82,6 @@ namespace GoTExplorer.ViewModels
             }
 
             await base.OnNavigatedToAsync(parameter, mode, state);
-        }
-
-        /*private async void TransformUriToCharacter(string uri, ObservableCollection<Character> characterList)
-        {
-            string[] urlTokens = uri.Split('/');
-            int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-            var service = new CharacterService();
-            Character = await service.GetCharacterAsync(characterId);
-            characterList.Add(Character);
-        }*/
-
-        public void NavigateToCharacterDetailsPage(Character character)
-        {
-            string[] urlTokens = character.url.Split('/');
-            int characterId = int.Parse(urlTokens[urlTokens.Length - 1]);
-
-            NavigationService.Navigate(typeof(CharacterDetailsPage), characterId);
         }
     }
 }

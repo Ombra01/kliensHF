@@ -13,10 +13,19 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoTExplorer.ViewModels
 {
+    /// <summary>
+    ///     View model for characters page.
+    /// </summary>
     class CharactersPageViewModel : ViewModelBase
     {
         public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
 
+        /// <summary>
+        ///     Defines what happens when the page is navigated on.
+        /// </summary>
+        /// <param name="parameter">parameter.</param>
+        /// <param name="mode">navigation mode.</param>
+        /// <param name="state">state.</param>
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             int pageNumber = (int)parameter;
@@ -29,6 +38,10 @@ namespace GoTExplorer.ViewModels
             await base.OnNavigatedToAsync(parameter, mode, state);
         }
 
+        /// <summary>
+        ///     Controls paging when the next page is requested.
+        /// </summary>
+        /// <param name="charactersListCount">checks the amount of characters listed on the current page.</param>
         public void NavigateToNextCharactersPage(int charactersListCount)
         {
             int newPageNumber;
@@ -44,6 +57,9 @@ namespace GoTExplorer.ViewModels
             NavigationService.Navigate(typeof(CharactersPage), newPageNumber);
         }
 
+        /// <summary>
+        ///     Controls paging when the previous page is requested.
+        /// </summary>
         public void NavigateToPreviousCharactersPage()
         {
             int newPageNumber;
@@ -59,6 +75,10 @@ namespace GoTExplorer.ViewModels
             NavigationService.Navigate(typeof(CharactersPage), newPageNumber);
         }
 
+        /// <summary>
+        ///     Navigates to a character's details page.
+        /// </summary>
+        /// <param name="character">the character whose page needs to be opened.</param>
         public void NavigateToCharacterDetailsPage(Character character)
         {
             string[] urlTokens = character.url.Split('/');

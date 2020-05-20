@@ -10,8 +10,14 @@ using Template10.Mvvm;
 
 namespace GoTExplorer.ViewModels
 {
+    /// <summary>
+    ///     View model for the search page.
+    /// </summary>
     class SearchPageViewModel : ViewModelBase
     {
+        /// <summary>
+        ///     Navigates to the books page.
+        /// </summary>
         public void NavigateToBooksPage()
         {
             App.currentBooksPageNumber = 1;
@@ -19,8 +25,15 @@ namespace GoTExplorer.ViewModels
             NavigationService.Navigate(typeof(BooksPage), pageNumber);
         }
 
+        /// <summary>
+        ///     Navigates to a book's details page.
+        /// </summary>
+        /// <param name="bookName">the name of the book whose page needs to be opened.</param>
         public void NavigateToBookDetailsPage(string bookName) { NavigationService.Navigate(typeof(BookDetailsPage), bookName); }
 
+        /// <summary>
+        ///     Navigates to the characters page.
+        /// </summary>
         public void NavigateToCharactersPage()
         {
             App.currentCharactersPageNumber = 1;
@@ -28,8 +41,15 @@ namespace GoTExplorer.ViewModels
             NavigationService.Navigate(typeof(CharactersPage), pageNumber);
         }
 
+        /// <summary>
+        ///     Navigates to a character's details page.
+        /// </summary>
+        /// <param name="characterName">the name of the character whose page needs to be opened.</param>
         public void NavigateToCharacterDetailsPage(string characterName) { NavigationService.Navigate(typeof(CharacterDetailsPage), characterName); }
 
+        /// <summary>
+        ///     Navigates to the houses page.
+        /// </summary>
         public void NavigateToHousesPage()
         {
             App.currentHousesPageNumber = 1;
@@ -37,10 +57,22 @@ namespace GoTExplorer.ViewModels
             NavigationService.Navigate(typeof(HousesPage), pageNumber);
         }
 
+        /// <summary>
+        ///     Navigates to a house's details page.
+        /// </summary>
+        /// <param name="houseName">the name of the house whose page needs to be opened.</param>
         public void NavigateToHouseDetailsPage(string houseName) { NavigationService.Navigate(typeof(HouseDetailsPage), houseName); }
 
+        /// <summary>
+        ///     Navigates to the search page.
+        /// </summary>
         public void NavigateToSearchPage() { NavigationService.Navigate(typeof(SearchPage)); }
 
+        /// <summary>
+        ///     Checks what was searched and decides which page needs to be opened.
+        /// </summary>
+        /// <param name="searchType">the type the user searched for.</param>
+        /// <param name="searchName">the search string.</param>
         public void SearchNavigation(string searchType, string searchName)
         {
             if (searchType == "-- Please select --")
