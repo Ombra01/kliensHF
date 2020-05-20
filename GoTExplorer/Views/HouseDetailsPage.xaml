@@ -41,9 +41,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader Content="{Binding House.name}" Grid.Row="0" />
-        <controls:PageHeader>
-            <AppBarButton Label="New Search" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible" />
+        <controls:PageHeader Content="{Binding House.name}" Grid.Row="0">
+            <AppBarButton Content="New Search" FontSize="12" Background="LightGreen" VerticalAlignment="Top" HorizontalAlignment="Center" Visibility="Visible" Click="NewSearchButton_Click" />
         </controls:PageHeader>
 
         <ListView HorizontalAlignment="Left" Height="auto" Margin="80,80,0,0" VerticalAlignment="Top" SelectionMode="None" Grid.Row="1">
@@ -107,7 +106,7 @@
                 <TextBlock Text="{Binding House.diedOut}" Margin="210,0,0,30" Width="200" />
             </Grid>
             <Grid>
-                <TextBlock Text="Ancestral Weapons:" Margin="0,0,0,30" Width="200" FontSize="12" />
+                <TextBlock Text="A. Weapons:" Margin="0,0,0,30" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource AncestralWeaponsViewSource}}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>

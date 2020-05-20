@@ -32,5 +32,10 @@ namespace GoTExplorer.Views
         {
             ViewModel.NavigateToCharacterDetailsPage((Character)e.ClickedItem);
         }
+
+        private void NewSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.NavigateToSearchPage();
+        }
     }
 }

@@ -83,5 +83,7 @@ namespace GoTExplorer.ViewModels
         }
 
         public void NavigateToNotFoundPage() { NavigationService.Navigate(typeof(NotFoundPage)); }
+
+        public void NavigateToSearchPage() { NavigationService.Navigate(typeof(SearchPage)); }
     }
 }

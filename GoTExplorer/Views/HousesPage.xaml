@@ -27,12 +27,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader Content="Books" Grid.Row="0" />
-        <controls:PageHeader>
-            <AppBarButton Label="New Search" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible" />
-        </controls:PageHeader>
+        <controls:PageHeader Content="Houses" Grid.Row="0" />
 
-        <ListView>
+        <ListView SelectionMode="None">
             <ListView x:Name="HouseList" HorizontalAlignment="Center" Height="auto" Margin="20,112,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource HousesViewSource}}" IsItemClickEnabled="True" ItemClick="House_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate>

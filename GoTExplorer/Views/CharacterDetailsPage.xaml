@@ -47,7 +47,7 @@
 
         <controls:PageHeader Content="{Binding Character.name}" Grid.Row="0" />
         <controls:PageHeader>
-            <AppBarButton Label="New Search" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible" />
+            <AppBarButton Content="New Search" FontSize="12" Background="LightGreen" VerticalAlignment="Top" HorizontalAlignment="Center" Visibility="Visible" Click="NewSearchButton_Click" />
         </controls:PageHeader>
 
         <ListView HorizontalAlignment="Left" Height="auto" Margin="80,80,0,0" VerticalAlignment="Top" SelectionMode="None" Grid.Row="1">
@@ -103,7 +103,7 @@
                 <TextBlock Text="{Binding Spouse.name}" Margin="210,0,0,30" Width="200" />
             </Grid>
             <Grid>
-                <TextBlock Text="Allegiances:" Margin="0,0,0,30" Width="200" />
+                <TextBlock Text="Allegiances:" Margin="0,0,0,0" Width="200" />
                 <ListView ItemsSource="{Binding Source={StaticResource HousesViewSource}}" IsItemClickEnabled="True" ItemClick="House_ItemClick">
                     <ListView.ItemTemplate>
                         <DataTemplate>
